@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 文本作品</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 40px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Project Context */
+        .project-context {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+            padding: 48px;
+            margin-bottom: 80px;
+        }
+
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .context-content {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .context-content strong {
+            color: #1a3a52;
+            font-weight: 700;
+        }
+
+        /* Two Column Layout */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Article Card */
+        .article-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .article-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a3a52;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .article-meta span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .article-meta .platform {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        /* Image Container */
+        .article-image-wrapper {
+            width: 100%;
+            border: 2px solid #e0e0e0;
+            overflow: hidden;
+            margin-bottom: 24px;
+            background: #f5f5f5;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .article-image-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .article-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 800px;
+            display: block;
+        }
+
+        .article-caption {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 16px;
+            border-left: 3px solid #ff6b35;
+            margin-bottom: 32px;
+        }
+
+        /* Summary */
+        .article-summary {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+            padding: 24px;
+            background: #f8f9fa;
+        }
+
+        .summary-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 80px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .article-title {
+                font-size: 24px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+            }
+
+            .project-context {
+                padding: 24px;
+            }
+
+            .context-content {
+                font-size: 16px;
+            }
+
+            .article-image {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-number">06 / PORTFOLIO</div>
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">公开发表文本作品</p>
+        </div>
+
+        <!-- Project Context -->
+        <div class="project-context">
+            <div class="context-label">Writing Background</div>
+            <div class="context-content">
+                在中南财经政法大学<strong>新闻与文化传播学院汉语言文学专业</strong>就读期间,保持文学创作与评论写作习惯。<strong>散文作品《回望高三》</strong>以细腻笔触记录青春奋斗岁月,展现人文关怀与情感温度;<strong>文学评论《故乡与此地》</strong>发表于《宝安日报》,以专业视角解读欧阳德彬中篇小说集,展现扎实的文本分析能力与学术素养。
+            </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="articles-grid">
+            <!-- Article 1: 回望高三 -->
+            <div class="article-card">
+                <div class="article-label">01 / Personal Essay</div>
+                <h3 class="article-title">回望高三</h3>
+                <div class="article-meta">
+                    <span class="platform">校园文学作品</span>
+                    <span>|</span>
+                    <span>作者:米瑶</span>
+                    <span>|</span>
+                    <span>中南财经政法大学</span>
+                    <span>|</span>
+                    <span><a href="https://t.m.youth.cn/transfer/index/url/book.youth.cn/zx/202509/t20250928_16264458.htm" target="_blank" style="color: #ff6b35; text-decoration: none; font-weight: 600;">查看原文 →</a></span>
+                </div>
+
+                <div class="article-image-wrapper">
+                    <img src="images/article-2.jpg" alt="回望高三" class="article-image">
+                </div>
+                <div class="article-caption">
+                    散文《回望高三》:以"母亲的雪白鱼汤"等意象,再现"最拼命也最热血"的高三时光
+                </div>
+
+                <div class="article-summary">
+                    <div class="summary-label">CORE CONTENT</div>
+                    文章以<strong>第一人称视角</strong>回忆高三住校生活,通过<strong>"洒满月光与灯光的路""母亲的雪白鱼汤"</strong>等具象意象,生动再现备考岁月的孤独与坚持。作者描绘了<strong>每周日母亲从家到校送鱼汤的温暖细节</strong>,以及独自在橘黄色灯光下复习的宁静夜晚,将这段充满紧张与奋斗的时光比喻为<strong>"临时的诗歌与远方""伊甸园"</strong>,表达对青春岁月的深切怀念与独特感悟。文章<strong>情感真挚、笔触细腻</strong>,展现人文关怀与叙事功底。
+                </div>
+            </div>
+
+            <!-- Article 2: 故乡与此地 -->
+            <div class="article-card">
+                <div class="article-label">02 / Literary Criticism</div>
+                <h3 class="article-title">故乡与此地<br>一段独特的内心体验</h3>
+                <div class="article-meta">
+                    <span class="platform">宝安日报</span>
+                    <span>|</span>
+                    <span>作者:米瑶</span>
+                    <span>|</span>
+                    <span>公开发表</span>
+                </div>
+
+                <div class="article-image-wrapper">
+                    <img src="images/article-1.jpg" alt="故乡与此地" class="article-image">
+                </div>
+                <div class="article-caption">
+                    文学评论《故乡与此地》:发表于《宝安日报》,评析欧阳德彬中篇小说集《故城往事》
+                </div>
+
+                <div class="article-summary">
+                    <div class="summary-label">CORE CONTENT</div>
+                    文章是对<strong>欧阳德彬中篇小说集《故城往事》</strong>的专业书评,从<strong>三个核心关键词</strong>切入分析:<strong>①异质青年对故乡/都市的妥协与反抗</strong>,剖析主人公在城乡边缘的精神困境;<strong>②如梦似幻的非理性感知世界</strong>,探讨小说在现实与梦境间跳跃的叙事结构;<strong>③以独特生命感知触摸脉搏跳跃</strong>,解读"故事套故事"的叙事手法与张力。文章<strong>逻辑严密、分析深入</strong>,展现扎实的文本细读能力与文学评论素养,体现汉语言文学专业背景下的<strong>学术写作功底</strong>。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

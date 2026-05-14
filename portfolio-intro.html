@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米瑶 - 个人简介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Hero Section - Editorial Style */
+        .hero {
+            padding: 120px 0 100px;
+            border-bottom: 3px solid #1a3a52;
+        }
+
+        .hero h1 {
+            font-size: 120px;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            color: #1a3a52;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .meta-block h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .meta-block p {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* Education Section - Grid Layout */
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .edu-card {
+            border-top: 4px solid #ff6b35;
+            padding-top: 24px;
+        }
+
+        .edu-card .school {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: #1a3a52;
+        }
+
+        .edu-card .degree {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .edu-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1a3a52;
+        }
+
+        /* Experience Section - Editorial Layout */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+        }
+
+        .exp-item {
+            position: relative;
+        }
+
+        .exp-header {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            align-items: baseline;
+            gap: 40px;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 3px solid #1a3a52;
+        }
+
+        .exp-company {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+        }
+
+        .exp-date {
+            font-size: 14px;
+            color: #ff6b35;
+            text-align: right;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .exp-role {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .exp-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            color: #1a3a52;
+        }
+
+        /* Data Grid - Highlight Numbers */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 48px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+        }
+
+        .data-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-number {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 12px;
+            color: #ff6b35;
+        }
+
+        .data-label {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Text Highlights */
+        .exp-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .highlight-item {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 3px;
+            background: #ff6b35;
+        }
+
+        .highlight-item strong {
+            font-weight: 700;
+            color: #1a3a52;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .hero h1 {
+                font-size: 80px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .exp-company {
+                font-size: 42px;
+            }
+
+            .education-grid,
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-date {
+                text-align: left;
+            }
+
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 56px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .exp-company {
+                font-size: 32px;
+            }
+
+            .edu-card .school {
+                font-size: 28px;
+            }
+
+            .data-number {
+                font-size: 36px;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>米瑶</h1>
+            
+            <div class="hero-meta">
+                <div class="meta-block">
+                    <h3>Position</h3>
+                    <p>招聘运营<br>内容创作者</p>
+                </div>
+                <div class="meta-block">
+                    <h3>Contact</h3>
+                    <p>19937391656<br>1094032891@qq.com</p>
+                </div>
+                <div class="meta-block">
+                    <h3>Location</h3>
+                    <p>深圳<br>中国</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">01 / EDUCATION</div>
+                <h2 class="section-title">教育背景</h2>
+            </div>
+            
+            <div class="education-grid">
+                <div class="edu-card">
+                    <div class="school">深圳大学</div>
+                    <div class="degree">硕士研究生 · 中国语言文学学</div>
+                    <div class="edu-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Ranking</div>
+                            <div class="stat-value">QS 27</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">GPA</div>
+                            <div class="stat-value">3.89/4</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Class Rank</div>
+                            <div class="stat-value">#2</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Period</div>
+                            <div class="stat-value">2024-27</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="school">中南财经政法大学</div>
+                    <div class="degree">本科 · 中国语言文学</div>
+                    <div class="edu-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Category</div>
+                            <div class="stat-value">211</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">GPA</div>
+                            <div class="stat-value">3.87/4</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Class Rank</div>
+                            <div class="stat-value">Top 20%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Period</div>
+                            <div class="stat-value">2020-24</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">02 / EXPERIENCE</div>
+                <h2 class="section-title">实习经历</h2>
+            </div>
+
+            <div class="experience-list">
+                <!-- Tencent -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">招聘调配</div>
+                            <div class="exp-company">腾讯</div>
+                        </div>
+                        <div class="exp-date">2026.1 - 至今</div>
+                    </div>
+
+                    <h3>腾讯IEG游戏发行2026届校招全流程支持</h3>
+
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <div class="data-number">203</div>
+                            <div class="data-label">推文单篇互动量<br>(声量同比增长)</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">198</div>
+                            <div class="data-label">筛选推荐简历数</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">37</div>
+                            <div class="data-label">发起面试人数</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">3</div>
+                            <div class="data-label">最终Offer落地</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">7.4w+</div>
+                            <div class="data-label">小红书账号曝光量</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">43</div>
+                            <div class="data-label">渠道转化人数<br>(含4份新简历)</div>
+                        </div>
+                    </div>
+
+                    <div class="exp-highlights">
+                        <div class="highlight-item">
+                            独立负责<strong>校招推文全流程</strong>,撰写并设计"2026腾讯IEG寻找未来发行制作人"公众号推文,单篇互动量203,沉淀《校招推文撰写SOP》复用至团队
+                        </div>
+                        <div class="highlight-item">
+                            完成投递<strong>数据动态监测</strong>与<strong>人群包标签验证</strong>,圈选并推荐5组高质量标签组合;完成20+候选人沟通与面试邀请,协助线下专场面试活动全流程
+                        </div>
+                        <div class="highlight-item">
+                            部署<strong>Codebuddy开发</strong>"简历自动匹配链接""小红书运营助手"等Skill,AI海报生成与数据分析,实现数据处理<strong>提效50%</strong>、周报撰写<strong>提效60%</strong>
+                        </div>
+                        <div class="highlight-item">
+                            通过调研与访谈定位学生对发行岗的认知偏差,搭建小红书素人账号,5篇笔记累计曝光7.4w+、赞藏1299、涨粉67,互动率超99%同类账号,<strong>渠道转化43人</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Haoweilai -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">教学管理</div>
+                            <div class="exp-company">好未来</div>
+                        </div>
+                        <div class="exp-date">2023.12 - 2025.12</div>
+                    </div>
+
+                    <h3>学而思网校大阅读产品课程设计与项目推进</h3>
+
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <div class="data-number">200+</div>
+                            <div class="data-label">审核教学视频节数</div>
+                        </div>
+                    </div>
+
+                    <div class="exp-highlights">
+                        <div class="highlight-item">
+                            参与核心教育产品升级,深度参与教学内容的<strong>质量策划与优化</strong>。严格<strong>审核200+节</strong>教学视频,从<strong>内容准确性、叙事节奏与呈现形式</strong>等专业维度提出系统化优化建议
+                        </div>
+                        <div class="highlight-item">
+                            参与图书编辑与磨课教研,结合用户学习需求与反馈,<strong>优化内容结构与讲解逻辑</strong>,助力产品教学内容质量与用户认可度显著提升
+                        </div>
+                        <div class="highlight-item">
+                            系统收集、整理与分析课后用户反馈与行为数据,进行<strong>归因分析</strong>,并输出<strong>结构化改进方案</strong>,为产品的迭代升级与运营策略优化提供直接的数据支撑与方向参考
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gaodun -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">新媒体运营</div>
+                            <div class="exp-company">高顿教育</div>
+                        </div>
+                        <div class="exp-date">2022.07 - 2022.09</div>
+                    </div>
+
+                    <h3>暑期招引流项目 · 品牌曝光度与新生报名率提升</h3>
+
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <div class="data-number">30+</div>
+                            <div class="data-label">原创优质文案篇数</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">10K+</div>
+                            <div class="data-label">线上内容总阅读量</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">138</div>
+                            <div class="data-label">线下拉新人数</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-number">14%</div>
+                            <div class="data-label">活动转化率</div>
+                        </div>
+                    </div>
+
+                    <div class="exp-highlights">
+                        <div class="highlight-item">
+                            聚焦小红书/微博/知乎三大社交平台,以<strong>"学姐带你进大学"</strong>为热点主题,独立产出<strong>30+篇优质文案</strong>,精准触达年轻目标人群,线上内容总阅读量超<strong>10000+</strong>
+                        </div>
+                        <div class="highlight-item">
+                            设计互动玩法策划线下拉新活动,吸引<strong>500+人次</strong>参与,通过全周期<strong>数据监控</strong>与转化率分析复盘,最终实现<strong>138人拉新</strong>,转化率达<strong>14%</strong>,获"领航实习生"称号
+                        </div>
+                        <div class="highlight-item">
+                            从<strong>0到1搭建</strong>并维护3个核心用户社群,收集用户反馈并优化内容形式,提升<strong>社群活跃度与用户粘性</strong>,深化雇主品牌形象
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Douyin -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">视频脚本创作</div>
+                            <div class="exp-company">抖音头部达人</div>
+                        </div>
+                        <div class="exp-date">2020.12 - 2021.03</div>
+                    </div>
+
+                    <h3>"七颗猫猫"内容团队 · 短视频脚本创作与数据复盘</h3>
+
+                    <div class="exp-highlights">
+                        <div class="highlight-item">
+                            根据达人人调性,<strong>创意构思剧本</strong>,进行剧本创作,参与剧本拍前围读,提出后期审核建议,并对内容和数据进行<strong>复盘整合</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

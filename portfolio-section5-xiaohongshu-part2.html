@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 小红书运营(下)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 40px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            background: #f5f5f5;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 600px;
+        }
+
+        .image-caption {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 16px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .caption-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 8px;
+        }
+
+        /* Content Strategy Section */
+        .strategy-section {
+            padding: 60px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+            margin-bottom: 80px;
+        }
+
+        .strategy-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .strategy-item {
+            padding: 24px;
+            background: white;
+            border-top: 3px solid #1a3a52;
+        }
+
+        .strategy-number {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 12px;
+        }
+
+        .strategy-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .strategy-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Page Indicator */
+        .page-indicator {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .page-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff6b35;
+            letter-spacing: -1px;
+        }
+
+        .page-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .image-gallery,
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+            }
+
+            .strategy-section {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-number">07 / PORTFOLIO</div>
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">小红书平台运营(下)</p>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-plog-cover.jpg" alt="实习plog封面">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记03 - 实习日常plog(封面)</div>
+                    拼贴风设计:货车卸货区、咖啡机、办公工位、骑行影子四格拼图,配合"鹅厂实习plog"黄底黑字标题,建立"喵喵🐧厂历险版"IP视觉识别
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-plog-detail.jpg" alt="实习plog详情">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记03 - 实习日常plog(详情)</div>
+                    以时间节点串联一天实习流程(8:40起床→9:35到公司→20:45结束),骑行天桥影子照+叠加文案,展现真实工作体验与成长感悟
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-welfare.jpg" alt="福利测评">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记04 - 福利测评</div>
+                    "两个月🐧厂体验爽之!"主题,四格拼图展示企鹅玩偶、微波炉、台球桌、盒饭,以第一视角呈现公司福利细节,强化内容真实性与亲和力
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Strategy Section -->
+        <div class="strategy-section">
+            <div class="strategy-label">Content Strategy</div>
+            <div class="strategy-grid">
+                <div class="strategy-item">
+                    <div class="strategy-number">01</div>
+                    <div class="strategy-title">IP人设起点</div>
+                    <div class="strategy-desc">
+                        Offer喜报建立"上岸成功者"IP认知,六面经历展现专业度,奠定后续内容可信度基础
+                    </div>
+                </div>
+
+                <div class="strategy-item">
+                    <div class="strategy-number">02</div>
+                    <div class="strategy-title">利他价值输出</div>
+                    <div class="strategy-desc">
+                        面经分享+内推码置顶,"实习生help实习生"定位,实现43人转化投递的关键转化节点
+                    </div>
+                </div>
+
+                <div class="strategy-item">
+                    <div class="strategy-number">03</div>
+                    <div class="strategy-title">生活化内容</div>
+                    <div class="strategy-desc">
+                        实习plog、福利测评贴近日常,拼贴风+第一视角真实记录,强化IP亲和力与真实性
+                    </div>
+                </div>
+
+                <div class="strategy-item">
+                    <div class="strategy-number">04</div>
+                    <div class="strategy-title">视觉体系统一</div>
+                    <div class="strategy-desc">
+                        黄色标签+企鹅元素+拼贴风贯穿全程,建立"喵喵🐧厂历险版"品牌视觉识别度
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Indicator -->
+        <div class="page-indicator">
+            <div class="page-number">2 / 2</div>
+            <div class="page-label">PART TWO</div>
+        </div>
+    </div>
+</body>
+</html>

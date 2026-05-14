@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 个性化推文(上)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 40px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Project Context */
+        .project-context {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+            padding: 48px;
+            margin-bottom: 80px;
+        }
+
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .context-content {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .context-content strong {
+            color: #1a3a52;
+            font-weight: 700;
+        }
+
+        /* Project Details Grid */
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .detail-card {
+            padding: 32px;
+            border-top: 3px solid #1a3a52;
+        }
+
+        .detail-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .detail-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            background: #f5f5f5;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 600px;
+        }
+
+        .image-caption {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 16px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .caption-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 8px;
+        }
+
+        /* Page Indicator */
+        .page-indicator {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .page-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff6b35;
+            letter-spacing: -1px;
+        }
+
+        .page-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .project-details,
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+            }
+
+            .project-context {
+                padding: 24px;
+            }
+
+            .context-content {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-number">04 / PORTFOLIO</div>
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">校招个性化推文制作(上)</p>
+        </div>
+
+        <!-- Project Context -->
+        <div class="project-context">
+            <div class="context-label">Project Background</div>
+            <div class="context-content">
+                负责<strong>2026年腾讯IEG游戏发行"寻找未来发行制作人"专项招聘个性化推文</strong>全流程产出。通过<strong>前期深度访谈4位在职员工</strong>,挖掘真实求职故事与岗位洞察,撰写个性化内容文案,对接全新个人供应商完成创意设计与排版,得到<strong>雇主团队高度肯定</strong>,有效打破求职者认知壁垒,提升品牌亲和力。
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="project-details">
+            <div class="detail-card">
+                <div class="detail-title">01 / 前期访谈</div>
+                <div class="detail-content">
+                    深度访谈4位不同背景在职员工(0实习、跨专业、I人、游戏策划),挖掘真实求职经历与工作感悟,收集第一手素材
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-title">02 / 内容撰写</div>
+                <div class="detail-content">
+                    采用Q&A对话式文案,结合"从不为热爱设限""专业不是限制"等核心卖点,语言亲切真实,打破求职顾虑
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-title">03 / 创意设计</div>
+                <div class="detail-content">
+                    主导视觉风格定调,采用手绘风卡通形象+黄蓝配色,对接个人设计师完成排版,强化年轻化与亲和力表达
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-title">04 / 全流程对接</div>
+                <div class="detail-content">
+                    首次对接全新个人供应商,完成需求沟通、设计审核、修改反馈全链路,获雇主团队高度肯定
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/gexinghua-1.png" alt="推文首屏">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">推文首屏</div>
+                    腾讯企鹅IP+游戏手柄元素,配合"从不为热爱设限"核心slogan,手绘风对话气泡展示求职疑问,亲和力强
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/gexinghua-2.png" alt="人物故事-枣子">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">人物故事01 - 枣子(0实习)</div>
+                    "投就完了!"核心观点+卡通头像,Q&A对话式展开,打破"没实习=简历过不了"的认知壁垒
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/gexinghua-3.png" alt="深度内容">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">深度内容展开</div>
+                    详述电竞社经验价值、面试通关秘籍(游戏体验+数据敏感+游戏理解),黄色高亮强化关键信息
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Indicator -->
+        <div class="page-indicator">
+            <div class="page-number">1 / 2</div>
+            <div class="page-label">PART ONE</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 海报制作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 40px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Project Context */
+        .project-context {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+            padding: 48px;
+            margin-bottom: 80px;
+        }
+
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .context-content {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .context-content strong {
+            color: #1a3a52;
+            font-weight: 700;
+        }
+
+        /* Two Column Layout */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        /* Project Card */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 24px;
+            font-weight: 700;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #1a3a52;
+        }
+
+        .project-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a3a52;
+            letter-spacing: -1px;
+            margin-bottom: 32px;
+            line-height: 1.1;
+        }
+
+        .project-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 40px;
+        }
+
+        /* Image Container */
+        .image-container {
+            width: 100%;
+            border: 2px solid #e0e0e0;
+            background: #f5f5f5;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .poster-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .brochure-image {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            display: block;
+            background: white;
+        }
+        
+        .brochure-embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .image-caption {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 16px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        /* Key Features List */
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .feature-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-content {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .two-column-section {
+                grid-template-columns: 1fr;
+                gap: 80px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .project-title {
+                font-size: 28px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+            }
+
+            .project-context {
+                padding: 24px;
+            }
+
+            .context-content {
+                font-size: 16px;
+            }
+
+            .brochure-embed {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-number">05 / PORTFOLIO</div>
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">海报与宣传物料制作</p>
+        </div>
+
+        <!-- Project Context -->
+        <div class="project-context">
+            <div class="context-label">Project Overview</div>
+            <div class="context-content">
+                负责腾讯IEG游戏发行<strong>校招季视觉物料全流程产出</strong>,包括<strong>伯乐内推激励海报设计</strong>与<strong>进校宣传册制作</strong>。从需求梳理、文案撰写、视觉风格定调到供应商对接,独立完成<strong>双语版物料设计与印刷交付</strong>,确保品牌视觉统一性与传播有效性。
+            </div>
+        </div>
+
+        <!-- Two Column Projects -->
+        <div class="two-column-section">
+            <!-- Project 1: 伯乐内推海报 -->
+            <div class="project-card">
+                <div class="project-label">01 / Bole Referral Campaign</div>
+                <h3 class="project-title">伯乐内推<br>激励海报</h3>
+                <div class="project-description">
+                    策划并设计"伯乐直通车"内推激励海报,采用<strong>紫色渐变科技感背景+腾讯企鹅IP</strong>,融入三重奖励机制可视化设计(手环/手提袋/鹅FoFo玩偶),配合清晰的活动时间节点与参与流程,有效激励员工内推行为。
+                </div>
+
+                <div class="image-container">
+                    <img src="file:///Users/miyaymi/Desktop/截屏2026-05-13 18.09.47.png" alt="伯乐内推海报" class="poster-image">
+                </div>
+                <div class="image-caption">
+                    "伯乐直通车"三重奖励机制海报:简历推荐奖+面试发起奖+排行榜冲刺奖,紫色背景+企鹅IP+奖品实物展示
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-title">01 / 活动机制设计</div>
+                        <div class="feature-content">
+                            设计三重奖励阶梯(参与奖→流程奖→排行榜奖),配合具体奖品可视化呈现,强化激励效果
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">02 / 视觉风格</div>
+                        <div class="feature-content">
+                            紫色科技感渐变+动态线条+腾讯企鹅+伯乐牛IP,年轻化设计符合游戏行业调性
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">03 / 信息层级</div>
+                        <div class="feature-content">
+                            活动时间/规则/部门/奖励/参与方式五级信息清晰分层,配合二维码引导转化
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: 进校宣传册 -->
+            <div class="project-card">
+                <div class="project-label">02 / Campus Brochure</div>
+                <h3 class="project-title">寻找未来发行人<br>进校宣传册</h3>
+                <div class="project-description">
+                    主导设计<strong>中英双语三折页宣传册</strong>,采用<strong>Editorial Grid大字排版+深蓝橙色跳色系统</strong>,呈现IEG游戏发行9大部门岗位信息与核心招聘理念,对接印刷厂完成<strong>200份实体折页制作</strong>,用于高校宣讲会现场发放。
+                </div>
+
+                <div class="image-container">
+                    <embed src="images/xuanchuance.pdf" type="application/pdf" class="brochure-embed">
+                </div>
+                <div class="image-caption">
+                    "寻找未来发行人"三折页宣传册:中英双语排版,深蓝+橙色配色,9大部门岗位介绍+核心价值主张
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-title">01 / 内容架构</div>
+                        <div class="feature-content">
+                            封面slogan+9大部门介绍(K1/K3/K6/K9/射击/国内/合作生态/渠道/WeGame)+核心理念+投递指引
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">02 / 设计风格</div>
+                        <div class="feature-content">
+                            Editorial Grid版式+深蓝#1a3a52标题+橙色#ff6b35数据强调,大字排版突出信息层级
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">03 / 双语制作</div>
+                        <div class="feature-content">
+                            中英文双语排版设计,对接印刷厂完成200份实体折页制作与交付,用于高校宣讲会现场
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

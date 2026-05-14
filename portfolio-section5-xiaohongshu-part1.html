@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 小红书运营(上)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.3;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 40px;
+        }
+
+        .section-number {
+            font-size: 14px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a3a52;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Project Context */
+        .project-context {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #ff6b35;
+            padding: 48px;
+            margin-bottom: 80px;
+        }
+
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .context-content {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .context-content strong {
+            color: #1a3a52;
+            font-weight: 700;
+        }
+
+        /* Data Stats */
+        .data-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .stat-card {
+            padding: 32px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 3px solid #ff6b35;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: #ff6b35;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            background: #f5f5f5;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 600px;
+        }
+
+        .image-caption {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 16px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .caption-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 8px;
+        }
+
+        /* Page Indicator */
+        .page-indicator {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .page-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff6b35;
+            letter-spacing: -1px;
+        }
+
+        .page-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 60px 40px;
+            }
+
+            .section-title {
+                font-size: 56px;
+            }
+
+            .data-stats,
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+            }
+
+            .project-context {
+                padding: 24px;
+            }
+
+            .context-content {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-number">07 / PORTFOLIO</div>
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">小红书平台运营(上)</p>
+        </div>
+
+        <!-- Project Context -->
+        <div class="project-context">
+            <div class="context-label">Project Background</div>
+            <div class="context-content">
+                以<strong>个人IP"喵喵🐧厂历险版"</strong>在小红书平台进行<strong>腾讯游戏运营实习经验分享</strong>与<strong>校招求职内容创作</strong>。通过<strong>实习日常plog、福利测评、面经分享、offer喜报</strong>等多元内容形式,建立垂直领域影响力,实现<strong>7.4万+曝光、377互动、43人转化投递</strong>的传播效果,为雇主品牌建设与人才引流提供有力支持。
+            </div>
+        </div>
+
+        <!-- Data Stats -->
+        <div class="data-stats">
+            <div class="stat-card">
+                <div class="stat-number">7.4w+</div>
+                <div class="stat-label">总曝光量<br>覆盖目标求职人群</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">377</div>
+                <div class="stat-label">总互动量<br>点赞收藏评论</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">43</div>
+                <div class="stat-label">转化投递人数<br>实际引流效果</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">原创笔记数量<br>多元内容矩阵</div>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-offer.jpg" alt="offer喜报">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记01 - Offer喜报(IP起点)</div>
+                    "六面!孝女前来报道"拼贴风设计:模拟Offer界面、视频面试场景、工牌实物、流程图,展现求职全流程与成功喜悦,建立"上岸成功者"IP认知
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-interview-cover.jpg" alt="面经分享封面">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记02 - 面经分享(封面)</div>
+                    "腾讯ieg 游戏运营 面经!"纯文字设计,蓝底黄色标题+黑色加粗字体,视觉冲击力强,标注"实习生help实习生"传递利他价值
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="image-wrapper">
+                    <img src="images/xhs-interview-code.jpg" alt="面经内推码">
+                </div>
+                <div class="image-caption">
+                    <div class="caption-title">笔记02 - 面经分享(内推码)</div>
+                    评论区置顶内推码,紫色卡片设计展示IEG-K6合作部招聘信息,配合正文"大量在招"行动号召,实现43人转化投递
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Indicator -->
+        <div class="page-indicator">
+            <div class="page-number">1 / 2</div>
+            <div class="page-label">PART ONE</div>
+        </div>
+    </div>
+</body>
+</html>
