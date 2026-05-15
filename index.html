@@ -3,625 +3,774 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>米瑶 - 完整个人作品集</title>
+    <title>米瑶 · 个人作品集</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ===== 设计令牌 =====
+           主色：#2c1a0e  深棕
+           强调：#c96b72  烟玫红
+           底色：#ffffff  纯白
+           卡片：#ffffff
+           文字：#1c1c1e / #5a5a6a / #8a8a9a
+        ============================*/
+        :root {
+            --c-dark:   #2c1a0e;
+            --c-accent: #c96b72;
+            --c-bg:     #ffffff;
+            --c-card:   #ffffff;
+            --c-border: #e8e4de;
+            --c-text:   #1c1c1e;
+            --c-muted:  #5a5a6a;
+            --c-faint:  #8a8a9a;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.5;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
         }
 
-        /* Navigation */
+        /* ===== 导航 ===== */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e0e0e0;
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--c-border);
             z-index: 1000;
-            padding: 20px 0;
         }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 48px;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-
         .nav-brand {
-            font-size: 24px;
-            font-weight: 800;
-            color: #1a3a52;
-            letter-spacing: -0.5px;
+            font-size: 18px; font-weight: 800;
+            color: var(--c-dark); letter-spacing: 0.5px;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
+        .nav-brand span { color: var(--c-accent); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
         .nav-links a {
-            text-decoration: none;
-            color: #666;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            text-decoration: none; color: var(--c-muted);
+            font-size: 14px; font-weight: 600; letter-spacing: 0.3px;
+            transition: color 0.2s;
         }
+        .nav-links a:hover { color: var(--c-accent); }
 
-        .nav-links a:hover {
-            color: #ff6b35;
-        }
-
-        /* Hero Section */
+        /* ===== Hero ===== */
         .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a3a52 0%, #2d5f8a 100%);
-            color: white;
-            text-align: center;
-            padding: 120px 60px 80px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--c-dark);
+            padding: 120px 48px 80px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .hero-content h1 {
-            font-size: 96px;
-            font-weight: 800;
-            letter-spacing: -3px;
-            margin-bottom: 24px;
-            line-height: 1;
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 50%, rgba(201,107,114,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 60% at 85% 30%, rgba(201,107,114,0.10) 0%, transparent 60%);
+            pointer-events: none;
         }
-
-        .hero-content .subtitle {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 48px;
-            color: rgba(255, 255, 255, 0.9);
+        .hero-content { position: relative; text-align: center; max-width: 900px; }
+        .hero-eyebrow {
+            font-size: 13px; font-weight: 700; letter-spacing: 3px;
+            color: var(--c-accent); margin-bottom: 24px;
+            text-transform: uppercase;
         }
-
+        .hero-name {
+            font-size: 104px; font-weight: 800;
+            letter-spacing: -4px; line-height: 0.92;
+            color: #ffffff; margin-bottom: 28px;
+        }
+        .hero-subtitle {
+            font-size: 22px; font-weight: 300;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 56px; line-height: 1.5;
+        }
+        .hero-subtitle strong {
+            color: rgba(255,255,255,0.95); font-weight: 600;
+        }
+        .hero-divider {
+            width: 48px; height: 2px;
+            background: var(--c-accent);
+            margin: 0 auto 56px;
+        }
         .hero-stats {
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-            margin-top: 60px;
+            display: flex; gap: 56px; justify-content: center; flex-wrap: wrap;
         }
-
-        .hero-stat {
-            text-align: center;
+        .hero-stat { text-align: center; }
+        .hero-stat-num {
+            font-size: 44px; font-weight: 800;
+            color: var(--c-accent); letter-spacing: -1px;
+            line-height: 1; margin-bottom: 8px;
         }
-
-        .hero-stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #ff6b35;
-            margin-bottom: 8px;
-        }
-
         .hero-stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 1px;
+            font-size: 13px; color: rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
         }
 
-        /* Section Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 120px 60px;
-        }
+        /* ===== 通用容器 ===== */
+        .wrap { max-width: 1280px; margin: 0 auto; padding: 100px 48px; }
 
-        /* Section Header */
-        .section-header {
-            margin-bottom: 80px;
-            text-align: center;
+        /* ===== 板块标题 ===== */
+        .sec-tag {
+            font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+            color: var(--c-accent); text-transform: uppercase;
+            margin-bottom: 12px;
         }
-
-        .section-number {
-            font-size: 14px;
-            color: #ff6b35;
-            margin-bottom: 16px;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .sec-title {
+            font-size: 56px; font-weight: 800;
+            color: var(--c-dark); letter-spacing: -1.5px;
+            line-height: 1; margin-bottom: 16px;
         }
-
-        .section-title {
-            font-size: 72px;
-            font-weight: 800;
-            letter-spacing: -2px;
-            line-height: 1;
-            color: #1a3a52;
-            margin-bottom: 24px;
+        .sec-sub {
+            font-size: 18px; color: var(--c-muted);
+            max-width: 680px; line-height: 1.6;
         }
+        .sec-header { margin-bottom: 56px; }
 
-        .section-subtitle {
-            font-size: 20px;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Portfolio Grid */
+        /* ===== 作品卡片 ===== */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-            margin-top: 60px;
+            gap: 2px;
+            background: var(--c-border);
+            border: 2px solid var(--c-border);
         }
-
-        .portfolio-card {
-            border: 2px solid #e0e0e0;
+        .p-card {
+            background: var(--c-card);
             padding: 40px;
-            transition: all 0.3s;
-            background: white;
+            transition: background 0.2s;
             position: relative;
         }
-
-        .portfolio-card:hover {
-            border-color: #ff6b35;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        .p-card:hover { background: #fffdf9; }
+        .p-card-num {
+            font-size: 11px; font-weight: 700; letter-spacing: 2px;
+            color: var(--c-faint); text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .p-card-title {
+            font-size: 28px; font-weight: 800;
+            color: var(--c-dark); letter-spacing: -0.5px;
+            margin-bottom: 14px; line-height: 1.2;
+        }
+        .p-card-desc {
+            font-size: 15px; color: var(--c-muted);
+            line-height: 1.75; margin-bottom: 28px;
+        }
+        .p-card-desc b { color: var(--c-text); font-weight: 600; }
+        .p-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .p-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 18px;
+            font-size: 13px; font-weight: 700;
+            text-decoration: none;
+            color: var(--c-dark);
+            border: 1.5px solid var(--c-dark);
+            transition: all 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .p-link:hover {
+            background: var(--c-dark); color: #fff;
+        }
+        .p-link.accent {
+            border-color: var(--c-accent); color: var(--c-accent);
+        }
+        .p-link.accent:hover {
+            background: var(--c-accent); color: #fff;
         }
 
-        .portfolio-number {
-            font-size: 14px;
-            color: #ff6b35;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 16px;
+        /* ===== 快速跳转板块 ===== */
+        .quicklinks-section {
+            background: var(--c-dark);
+            padding: 0;
         }
-
-        .portfolio-title {
-            font-size: 36px;
-            font-weight: 800;
-            color: #1a3a52;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
+        .quicklinks-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 80px 48px;
         }
-
-        .portfolio-desc {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 24px;
+        .ql-header { margin-bottom: 48px; }
+        .ql-tag {
+            font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+            color: var(--c-accent); text-transform: uppercase; margin-bottom: 12px;
         }
-
-        .portfolio-links {
-            display: flex;
-            flex-wrap: wrap;
+        .ql-title {
+            font-size: 48px; font-weight: 800;
+            color: #ffffff; letter-spacing: -1.5px; line-height: 1;
+        }
+        .ql-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
         }
-
-        .portfolio-link {
-            display: inline-block;
-            color: #ff6b35;
-            font-weight: 600;
+        .ql-card {
+            display: block;
             text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            padding: 8px 16px;
-            border: 1px solid #ff6b35;
-            transition: all 0.3s;
+            padding: 28px 24px;
+            border: 1.5px solid rgba(255,255,255,0.12);
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
         }
-
-        .portfolio-link:hover {
-            background: #ff6b35;
-            color: white;
+        .ql-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--c-accent);
+            transform: scaleY(0); transform-origin: bottom;
+            transition: transform 0.25s;
         }
-
-        /* Index Section */
-        .index-section {
-            background: #f8f9fa;
-            padding: 120px 60px;
+        .ql-card:hover {
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.04);
+            transform: translateY(-2px);
         }
-
-        .index-title {
-            font-size: 56px;
-            font-weight: 800;
-            color: #1a3a52;
-            margin-bottom: 48px;
-            text-align: center;
-            letter-spacing: -1px;
+        .ql-card:hover::before { transform: scaleY(1); }
+        .ql-card-icon {
+            font-size: 24px; margin-bottom: 14px; display: block;
         }
+        .ql-card-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 2px;
+            color: var(--c-accent); text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .ql-card-title {
+            font-size: 18px; font-weight: 700;
+            color: #ffffff; margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .ql-card-desc {
+            font-size: 13px; color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .ql-card-arrow {
+            display: block; margin-top: 18px;
+            font-size: 13px; font-weight: 600;
+            color: rgba(255,255,255,0.4);
+            transition: color 0.2s;
+        }
+        .ql-card:hover .ql-card-arrow { color: var(--c-accent); }
 
+        /* ===== 作品目录 ===== */
+        .index-section { background: var(--c-bg); }
         .index-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 20px;
         }
-
-        .index-card {
-            background: white;
-            padding: 32px;
-            border-left: 4px solid #ff6b35;
-            transition: all 0.3s;
+        .idx-card {
+            background: var(--c-card);
+            padding: 28px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
         }
-
-        .index-card:hover {
-            transform: translateX(4px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        .idx-card:hover {
+            border-left-color: var(--c-accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
+        .idx-num {
+            font-size: 40px; font-weight: 800;
+            color: var(--c-border); letter-spacing: -1px;
+            line-height: 1; margin-bottom: 12px;
+        }
+        .idx-title {
+            font-size: 17px; font-weight: 700;
+            color: var(--c-dark); margin-bottom: 8px;
+        }
+        .idx-desc {
+            font-size: 13px; color: var(--c-faint);
+            line-height: 1.6; margin-bottom: 16px;
+        }
+        .idx-link {
+            font-size: 13px; font-weight: 700;
+            color: var(--c-accent); text-decoration: none;
+            letter-spacing: 0.3px;
+        }
+        .idx-link:hover { text-decoration: underline; }
 
-        .index-card-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #ff6b35;
-            margin-bottom: 16px;
+        /* ===== 联系板块 ===== */
+        .contact-section { background: var(--c-card); }
+        .contact-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 100px 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .contact-left {}
+        .contact-title {
+            font-size: 56px; font-weight: 800;
+            color: var(--c-dark); letter-spacing: -1.5px;
+            line-height: 1; margin-bottom: 20px;
+        }
+        .contact-desc {
+            font-size: 17px; color: var(--c-muted);
+            line-height: 1.7; margin-bottom: 40px;
+        }
+        .contact-items { display: flex; flex-direction: column; gap: 20px; }
+        .contact-item {
+            display: flex; align-items: center; gap: 16px;
+            padding: 20px 24px;
+            background: var(--c-bg);
+            border-left: 3px solid var(--c-accent);
+        }
+        .contact-item-icon {
+            font-size: 20px; flex-shrink: 0;
+        }
+        .contact-item-body {}
+        .contact-item-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+            color: var(--c-faint); text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .contact-item-value {
+            font-size: 17px; font-weight: 600; color: var(--c-dark);
+        }
+        .contact-item-value a {
+            color: var(--c-dark); text-decoration: none;
+        }
+        .contact-item-value a:hover { color: var(--c-accent); }
+
+        /* 右侧简历信息 */
+        .contact-right { padding-top: 8px; }
+        .contact-profile {
+            background: var(--c-dark);
+            padding: 40px;
+            color: #fff;
+        }
+        .cp-name {
+            font-size: 48px; font-weight: 800;
+            letter-spacing: -2px; margin-bottom: 4px;
             line-height: 1;
         }
-
-        .index-card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a3a52;
-            margin-bottom: 12px;
-        }
-
-        .index-card-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .index-card-link {
-            display: inline-block;
-            color: #ff6b35;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .index-card-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: white;
-            padding: 120px 60px;
-            text-align: center;
-        }
-
-        .contact-title {
-            font-size: 56px;
-            font-weight: 800;
-            color: #1a3a52;
+        .cp-role {
+            font-size: 15px; color: rgba(255,255,255,0.6);
             margin-bottom: 32px;
-            letter-spacing: -1px;
         }
-
-        .contact-info {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 16px;
+        .cp-divider {
+            height: 1px; background: rgba(255,255,255,0.12);
+            margin-bottom: 28px;
         }
-
-        .contact-info a {
-            color: #ff6b35;
-            text-decoration: none;
-            font-weight: 600;
+        .cp-row {
+            display: flex; justify-content: space-between;
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
-
-        .contact-info a:hover {
-            text-decoration: underline;
+        .cp-row:last-child { border-bottom: none; }
+        .cp-row-label {
+            font-size: 12px; color: rgba(255,255,255,0.45);
+            letter-spacing: 0.5px;
         }
+        .cp-row-value {
+            font-size: 14px; color: rgba(255,255,255,0.9);
+            font-weight: 500; text-align: right;
+        }
+        .cp-accent { color: var(--c-accent); }
 
-        /* Footer */
+        /* ===== Footer ===== */
         .footer {
-            background: #1a3a52;
-            color: white;
+            background: #080e17;
             text-align: center;
-            padding: 40px;
+            padding: 36px 48px;
         }
-
         .footer p {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            color: rgba(255,255,255,0.35);
+            line-height: 1.8;
         }
 
-        /* Responsive */
+        /* ===== 响应式 ===== */
         @media (max-width: 1024px) {
-            .hero-content h1 {
-                font-size: 64px;
-            }
-
-            .section-title {
-                font-size: 48px;
-            }
-
-            .portfolio-grid,
-            .index-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
+            .hero-name { font-size: 72px; }
+            .sec-title { font-size: 42px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .ql-grid { grid-template-columns: repeat(2, 1fr); }
+            .index-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-inner { grid-template-columns: 1fr; gap: 48px; }
         }
-
         @media (max-width: 640px) {
-            .nav-container,
-            .container {
-                padding: 0 24px;
-            }
-
-            .hero {
-                padding: 100px 24px 60px;
-            }
-
-            .hero-content h1 {
-                font-size: 40px;
-            }
-
-            .hero-content .subtitle {
-                font-size: 20px;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 32px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .portfolio-title {
-                font-size: 28px;
-            }
-
-            .contact-title,
-            .index-title {
-                font-size: 36px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .index-section,
-            .contact-section {
-                padding: 80px 24px;
-            }
+            .nav-links { display: none; }
+            .hero { padding: 100px 24px 60px; }
+            .hero-name { font-size: 52px; letter-spacing: -2px; }
+            .hero-stats { gap: 32px; }
+            .wrap { padding: 60px 24px; }
+            .ql-grid { grid-template-columns: 1fr; }
+            .index-grid { grid-template-columns: 1fr; }
+            .contact-title, .sec-title, .ql-title { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- 导航 -->
     <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-brand">米瑶 PORTFOLIO</div>
+        <div class="nav-inner">
+            <div class="nav-brand">米瑶<span>·</span>PORTFOLIO</div>
             <ul class="nav-links">
                 <li><a href="#intro">简介</a></li>
                 <li><a href="#works">作品</a></li>
+                <li><a href="#links">快速跳转</a></li>
                 <li><a href="#index">目录</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="intro">
         <div class="hero-content">
-            <h1>米瑶</h1>
-            <p class="subtitle">腾讯IEG游戏发行 | 招聘调配 | 内容创作者</p>
+            <div class="hero-eyebrow">腾讯 IEG · 招聘调配 · 内容创作者</div>
+            <h1 class="hero-name">米瑶</h1>
+            <p class="hero-subtitle">
+                <strong>深圳大学</strong>硕士在读（QS 内地 27）&emsp;×&emsp;
+                <strong>腾讯 IEG 游戏发行</strong>招聘调配实习
+            </p>
+            <div class="hero-divider"></div>
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <div class="hero-stat-number">7.4w+</div>
+                    <div class="hero-stat-num">7.4w+</div>
                     <div class="hero-stat-label">小红书曝光量</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">203</div>
+                    <div class="hero-stat-num">203</div>
                     <div class="hero-stat-label">推文单篇互动量</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">43</div>
-                    <div class="hero-stat-label">转化投递人数</div>
+                    <div class="hero-stat-num">43</div>
+                    <div class="hero-stat-label">渠道转化投递人数</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">198</div>
+                    <div class="hero-stat-label">筛选推荐简历数</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- 作品展示 -->
     <section id="works">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">PORTFOLIO</div>
-                <h2 class="section-title">作品展示</h2>
-                <p class="section-subtitle">
-                    涵盖招聘运营、内容创作、视觉设计、文学创作与新媒体运营的多元作品集
-                </p>
+        <div class="wrap">
+            <div class="sec-header">
+                <div class="sec-tag">Portfolio</div>
+                <h2 class="sec-title">作品展示</h2>
+                <p class="sec-sub">涵盖招聘运营、内容创作、视觉设计、文学创作与新媒体运营的多元作品集</p>
             </div>
 
             <div class="portfolio-grid">
-                <!-- Work 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">01 / INTRODUCTION</div>
-                    <h3 class="portfolio-title">个人简介</h3>
-                    <p class="portfolio-desc">
-                        教育背景:深圳大学硕士(QS内地27,绩点3.89)、中南财经政法大学本科(211)<br>
-                        当前职位:腾讯IEG游戏发行招聘调配(2026.1至今)<br>
-                        核心成果:校招推文互动量203、筛选简历198份、面试37人、offer 3人
+                <!-- 01 -->
+                <div class="p-card">
+                    <div class="p-card-num">01 · Introduction</div>
+                    <h3 class="p-card-title">个人简介</h3>
+                    <p class="p-card-desc">
+                        教育背景：深圳大学硕士（QS 内地 27，绩点 3.89）、中南财经政法大学本科（211）<br>
+                        当前职位：腾讯 IEG 游戏发行招聘调配（2026.1 至今）<br>
+                        核心成果：推文互动量 203、筛选简历 198 份、面试 37 人、Offer 3 人
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-intro.html" target="_blank" class="portfolio-link">查看详情 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-intro.html" target="_blank" class="p-link accent">查看详情 →</a>
                     </div>
                 </div>
 
-                <!-- Work 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">02 / OFFICIAL CAMPAIGN</div>
-                    <h3 class="portfolio-title">校招官方推文</h3>
-                    <p class="portfolio-desc">
-                        2026年腾讯IEG"寻找未来发行制作人"专项招聘推文制作<br>
-                        文案写作 | 雇主审核 | 设计创意三大模块<br>
-                        单篇互动量203,成功吸引目标候选人群
+                <!-- 02 -->
+                <div class="p-card">
+                    <div class="p-card-num">02 · Official Campaign</div>
+                    <h3 class="p-card-title">校招官方推文</h3>
+                    <p class="p-card-desc">
+                        2026 年腾讯 IEG「寻找未来发行制作人」专项招聘推文制作<br>
+                        文案写作｜雇主审核｜设计创意三大模块<br>
+                        <b>单篇互动量 203</b>，成功吸引目标候选人群
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-work1.html" target="_blank" class="portfolio-link">查看作品 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-work1.html" target="_blank" class="p-link accent">查看作品 →</a>
                     </div>
                 </div>
 
-                <!-- Work 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">03 / PERSONALIZED CONTENT</div>
-                    <h3 class="portfolio-title">个性化推文制作</h3>
-                    <p class="portfolio-desc">
-                        前期访谈4位在职员工,挖掘真实求职故事<br>
-                        Q&A对话式文案,手绘风卡通设计<br>
-                        得到雇主团队高度肯定,打破求职认知壁垒
+                <!-- 03 -->
+                <div class="p-card">
+                    <div class="p-card-num">03 · Personalized Content</div>
+                    <h3 class="p-card-title">个性化推文制作</h3>
+                    <p class="p-card-desc">
+                        前期访谈 4 位在职员工，挖掘真实求职故事<br>
+                        Q&amp;A 对话式文案，手绘风卡通设计<br>
+                        得到雇主团队高度肯定，打破求职认知壁垒
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-work2-part1.html" target="_blank" class="portfolio-link">第一部分 →</a>
-                        <a href="portfolio-work2-part2.html" target="_blank" class="portfolio-link">第二部分 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-work2-part1.html" target="_blank" class="p-link">第一部分 →</a>
+                        <a href="portfolio-work2-part2.html" target="_blank" class="p-link">第二部分 →</a>
                     </div>
                 </div>
 
-                <!-- Work 4 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">04 / VISUAL DESIGN</div>
-                    <h3 class="portfolio-title">海报与宣传物料</h3>
-                    <p class="portfolio-desc">
-                        伯乐内推激励海报:三重奖励机制可视化设计<br>
-                        进校宣传册:中英双语三折页,200份实体印刷<br>
-                        Editorial Grid版式+深蓝橙色跳色系统
+                <!-- 04 -->
+                <div class="p-card">
+                    <div class="p-card-num">04 · Visual Design</div>
+                    <h3 class="p-card-title">海报与宣传物料</h3>
+                    <p class="p-card-desc">
+                        伯乐内推激励海报：三重奖励机制可视化设计<br>
+                        进校宣传册：中英双语三折页，200 份实体印刷<br>
+                        Editorial Grid 版式 + 深蓝橙色跳色系统
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-section3-posters.html" target="_blank" class="portfolio-link">查看作品 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-section3-posters.html" target="_blank" class="p-link accent">查看作品 →</a>
                     </div>
                 </div>
 
-                <!-- Work 5 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">05 / LITERARY WORKS</div>
-                    <h3 class="portfolio-title">公开发表文本作品</h3>
-                    <p class="portfolio-desc">
-                        散文《回望高三》:以细腻笔触记录青春奋斗岁月<br>
-                        文学评论《故乡与此地》:发表于《宝安日报》<br>
-                        展现文本分析能力与学术素养
+                <!-- 05 -->
+                <div class="p-card">
+                    <div class="p-card-num">05 · Literary Works</div>
+                    <h3 class="p-card-title">公开发表文本作品</h3>
+                    <p class="p-card-desc">
+                        散文《回望高三》：发表于《今古传奇》，以细腻笔触记录青春岁月<br>
+                        文学评论《故城·此地·幻梦》：整版刊登于《宝安日报》<br>
+                        《幻梦中的故城往事》：发表于《羊城晚报》，后被中国青年网转载
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-section4-writing.html" target="_blank" class="portfolio-link">查看作品 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-section4-writing.html" target="_blank" class="p-link accent">查看作品 →</a>
                     </div>
                 </div>
 
-                <!-- Work 6 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-number">06 / SOCIAL MEDIA</div>
-                    <h3 class="portfolio-title">小红书平台运营</h3>
-                    <p class="portfolio-desc">
-                        个人IP"喵喵🐧厂历险版"运营<br>
-                        Offer喜报→面经分享→实习plog→福利测评<br>
-                        7.4万+曝光、赞藏1299、涨粉67、43人转化投递
+                <!-- 06 -->
+                <div class="p-card">
+                    <div class="p-card-num">06 · Social Media</div>
+                    <h3 class="p-card-title">小红书平台运营</h3>
+                    <p class="p-card-desc">
+                        个人 IP「喵喵🐧厂历险版」运营<br>
+                        Offer 喜报 → 面经分享 → 实习 Plog → 福利测评<br>
+                        <b>7.4 万+ 曝光、赞藏 1299、涨粉 67、43 人转化投递</b>，互动率超 99% 同类账号
                     </p>
-                    <div class="portfolio-links">
-                        <a href="portfolio-section5-xiaohongshu-part1.html" target="_blank" class="portfolio-link">IP打造+面经 →</a>
-                        <a href="portfolio-section5-xiaohongshu-part2.html" target="_blank" class="portfolio-link">生活分享 →</a>
+                    <div class="p-links">
+                        <a href="portfolio-section5-xiaohongshu-part1.html" target="_blank" class="p-link">IP 打造 + 面经 →</a>
+                        <a href="portfolio-section5-xiaohongshu-part2.html" target="_blank" class="p-link">生活分享 →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Index Section -->
+    <!-- 快速跳转 -->
+    <section class="quicklinks-section" id="links">
+        <div class="quicklinks-inner">
+            <div class="ql-header">
+                <div class="ql-tag">Quick Links</div>
+                <h2 class="ql-title">快速跳转</h2>
+            </div>
+            <div class="ql-grid">
+                <a href="portfolio-intro.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">👤</span>
+                    <div class="ql-card-label">01 · Intro</div>
+                    <div class="ql-card-title">个人简介</div>
+                    <div class="ql-card-desc">教育背景、实习经历、核心数据一览</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-work1.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">📢</span>
+                    <div class="ql-card-label">02 · Campaign</div>
+                    <div class="ql-card-title">校招官方推文</div>
+                    <div class="ql-card-desc">互动量 203 的腾讯 IEG 校招推文全貌</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-work2-part1.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">💬</span>
+                    <div class="ql-card-label">03 · Content</div>
+                    <div class="ql-card-title">个性化推文</div>
+                    <div class="ql-card-desc">4 位员工访谈，Q&A 对话式创意内容</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-section3-posters.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">🎨</span>
+                    <div class="ql-card-label">04 · Design</div>
+                    <div class="ql-card-title">海报与物料</div>
+                    <div class="ql-card-desc">内推海报 + 进校宣传册视觉设计</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-section4-writing.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">📝</span>
+                    <div class="ql-card-label">05 · Writing</div>
+                    <div class="ql-card-title">文本作品</div>
+                    <div class="ql-card-desc">散文、评论、论文——多体裁公开发表</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-section5-xiaohongshu-part1.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">📱</span>
+                    <div class="ql-card-label">06 · Social</div>
+                    <div class="ql-card-title">小红书运营（上）</div>
+                    <div class="ql-card-desc">IP 打造 · Offer 喜报 · 面经分享</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="portfolio-section5-xiaohongshu-part2.html" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">🌟</span>
+                    <div class="ql-card-label">06 · Social</div>
+                    <div class="ql-card-title">小红书运营（下）</div>
+                    <div class="ql-card-desc">实习 Plog · 福利测评 · 内容策略</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+                <a href="https://github.com/guaguaxai/portfolio" target="_blank" class="ql-card">
+                    <span class="ql-card-icon">💻</span>
+                    <div class="ql-card-label">GitHub</div>
+                    <div class="ql-card-title">源代码仓库</div>
+                    <div class="ql-card-desc">作品集完整源码，公开可访问</div>
+                    <span class="ql-card-arrow">查看 →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品目录 -->
     <section class="index-section" id="index">
-        <h2 class="index-title">完整作品目录</h2>
-        <div class="index-grid">
-            <div class="index-card">
-                <div class="index-card-number">01</div>
-                <div class="index-card-title">个人简介</div>
-                <div class="index-card-desc">教育背景、工作经历、核心成果数据展示</div>
-                <a href="portfolio-intro.html" target="_blank" class="index-card-link">查看 →</a>
+        <div class="wrap">
+            <div class="sec-header">
+                <div class="sec-tag">Index</div>
+                <h2 class="sec-title">完整目录</h2>
             </div>
-
-            <div class="index-card">
-                <div class="index-card-number">02</div>
-                <div class="index-card-title">校招官方推文</div>
-                <div class="index-card-desc">"寻找未来发行制作人"推文三大模块展示</div>
-                <a href="portfolio-work1.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">03-1</div>
-                <div class="index-card-title">个性化推文(上)</div>
-                <div class="index-card-desc">前期访谈、内容撰写、创意设计流程(第1-3张)</div>
-                <a href="portfolio-work2-part1.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">03-2</div>
-                <div class="index-card-title">个性化推文(下)</div>
-                <div class="index-card-desc">人物故事展示与项目成果数据(第4-6张)</div>
-                <a href="portfolio-work2-part2.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">04</div>
-                <div class="index-card-title">海报与宣传物料</div>
-                <div class="index-card-desc">伯乐内推海报+进校宣传册双项目展示</div>
-                <a href="portfolio-section3-posters.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">05</div>
-                <div class="index-card-title">公开发表文本作品</div>
-                <div class="index-card-desc">散文《回望高三》+文学评论《故乡与此地》</div>
-                <a href="portfolio-section4-writing.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">06-1</div>
-                <div class="index-card-title">小红书运营(上)</div>
-                <div class="index-card-desc">IP打造:Offer喜报+面经分享+内推转化</div>
-                <a href="portfolio-section5-xiaohongshu-part1.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">06-2</div>
-                <div class="index-card-title">小红书运营(下)</div>
-                <div class="index-card-desc">生活分享:实习plog+福利测评+内容策略</div>
-                <a href="portfolio-section5-xiaohongshu-part2.html" target="_blank" class="index-card-link">查看 →</a>
-            </div>
-
-            <div class="index-card">
-                <div class="index-card-number">📊</div>
-                <div class="index-card-title">数据总览</div>
-                <div class="index-card-desc">7.4w+曝光 | 赞藏1299 | 43转化 | 9个页面</div>
-                <a href="#works" class="index-card-link">返回顶部 →</a>
+            <div class="index-grid">
+                <div class="idx-card">
+                    <div class="idx-num">01</div>
+                    <div class="idx-title">个人简介</div>
+                    <div class="idx-desc">教育背景、工作经历、核心成果数据展示</div>
+                    <a href="portfolio-intro.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">02</div>
+                    <div class="idx-title">校招官方推文</div>
+                    <div class="idx-desc">「寻找未来发行制作人」推文三大模块展示</div>
+                    <a href="portfolio-work1.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">03-1</div>
+                    <div class="idx-title">个性化推文（上）</div>
+                    <div class="idx-desc">前期访谈、内容撰写、创意设计流程（第 1—3 张）</div>
+                    <a href="portfolio-work2-part1.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">03-2</div>
+                    <div class="idx-title">个性化推文（下）</div>
+                    <div class="idx-desc">人物故事展示与项目成果数据（第 4—6 张）</div>
+                    <a href="portfolio-work2-part2.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">04</div>
+                    <div class="idx-title">海报与宣传物料</div>
+                    <div class="idx-desc">伯乐内推海报 + 进校宣传册双项目展示</div>
+                    <a href="portfolio-section3-posters.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">05</div>
+                    <div class="idx-title">公开发表文本作品</div>
+                    <div class="idx-desc">散文《回望高三》+ 评论《故城·此地·幻梦》+ 更多</div>
+                    <a href="portfolio-section4-writing.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">06-1</div>
+                    <div class="idx-title">小红书运营（上）</div>
+                    <div class="idx-desc">IP 打造：Offer 喜报 + 面经分享 + 内推转化</div>
+                    <a href="portfolio-section5-xiaohongshu-part1.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">06-2</div>
+                    <div class="idx-title">小红书运营（下）</div>
+                    <div class="idx-desc">生活分享：实习 Plog + 福利测评 + 内容策略</div>
+                    <a href="portfolio-section5-xiaohongshu-part2.html" target="_blank" class="idx-link">查看 →</a>
+                </div>
+                <div class="idx-card">
+                    <div class="idx-num">📊</div>
+                    <div class="idx-title">数据总览</div>
+                    <div class="idx-desc">7.4w+ 曝光｜赞藏 1299｜43 转化｜9 个页面</div>
+                    <a href="#intro" class="idx-link">回到顶部 →</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- 联系方式 -->
     <section class="contact-section" id="contact">
-        <h2 class="contact-title">联系方式</h2>
-        <p class="contact-info">姓名: 米瑶</p>
-        <p class="contact-info">单位: 腾讯IEG游戏发行 · 招聘调配</p>
-        <p class="contact-info">教育: 深圳大学硕士 (QS内地27,绩点3.89/4) | 中南财经政法大学本科 (211)</p>
-        <p class="contact-info">专业: 新闻与文化传播学院 · 汉语言文学</p>
+        <div class="contact-inner">
+            <div class="contact-left">
+                <div class="sec-tag">Contact</div>
+                <h2 class="contact-title">联系方式</h2>
+                <p class="contact-desc">
+                    欢迎就招聘合作、内容创作或任何感兴趣的话题与我交流。
+                </p>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📞</span>
+                        <div class="contact-item-body">
+                            <div class="contact-item-label">手机</div>
+                            <div class="contact-item-value">
+                                <a href="tel:19937391656">199-3739-1656</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">✉️</span>
+                        <div class="contact-item-body">
+                            <div class="contact-item-label">邮箱</div>
+                            <div class="contact-item-value">
+                                <a href="mailto:1094032891@qq.com">1094032891@qq.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">🏢</span>
+                        <div class="contact-item-body">
+                            <div class="contact-item-label">当前单位</div>
+                            <div class="contact-item-value">腾讯 IEG 游戏发行 · 招聘调配</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📍</span>
+                        <div class="contact-item-body">
+                            <div class="contact-item-label">所在城市</div>
+                            <div class="contact-item-value">深圳</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <div class="contact-profile">
+                    <div class="cp-name">米瑶</div>
+                    <div class="cp-role">招聘运营 · 内容创作者</div>
+                    <div class="cp-divider"></div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">学校</span>
+                        <span class="cp-row-value">深圳大学（QS 内地 27）</span>
+                    </div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">学历</span>
+                        <span class="cp-row-value">硕士在读 · 中国语言文学</span>
+                    </div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">绩点</span>
+                        <span class="cp-row-value cp-accent">3.89 / 4 &nbsp;（专业第 2）</span>
+                    </div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">本科</span>
+                        <span class="cp-row-value">中南财经政法大学（211）</span>
+                    </div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">专业</span>
+                        <span class="cp-row-value">中国语言文学</span>
+                    </div>
+                    <div class="cp-row">
+                        <span class="cp-row-label">实习</span>
+                        <span class="cp-row-value cp-accent">腾讯 · 好未来 · 高顿教育</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2026 米瑶 个人作品集 | 用心记录,用作品说话</p>
-        <p style="margin-top: 8px; font-size: 12px;">Editorial Grid Design | 深蓝#1a3a52 + 橙色#ff6b35</p>
+        <p>© 2026 米瑶 · 个人作品集 &emsp;|&emsp; 用心记录，用作品说话</p>
+        <p>深棕 #2c1a0e × 烟玫红 #c96b72 × 暖奶白 #ffffff</p>
     </footer>
+
 </body>
 </html>
